@@ -148,3 +148,6 @@ stylelintcache
 *.pid
 *.seed
 *.pid.lock
+
+
+queries.txt
