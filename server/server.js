@@ -4,6 +4,7 @@ import cookieParser from 'cookie-parser';
 import 'dotenv/config';
 import { connectDB } from './config/db.js';
 import { userRouter } from './routers/user.route.js';
+import { addressRouter } from './routers/address.route.js';
 
 const PORT = process.env.PORT || 8000;
 
@@ -19,7 +20,8 @@ app.get('/', (req, res) => {
     res.send(`Server is running on PORT ${PORT}`);
 })
 
-app.use('/api/user',userRouter);
+app.use('/api/user', userRouter);
+app.use('/api/address', addressRouter);
 
 app.listen(PORT, () => {
     console.log('Server is running on PORT', PORT);

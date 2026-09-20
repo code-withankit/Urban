@@ -1,8 +1,6 @@
-import { User } from "../models/user.model.js";
-import { Op } from 'sequelize';
+import { User } from "../models/index.js";
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import { hash } from "zod";
 
 export const checkUser = async (email) => {
     try {
