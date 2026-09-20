@@ -1,3 +1,4 @@
+import { sendOnboardingEmail } from "../services/email.service.js";
 import { checkPasswordValidity, checkUser, createToken, createUser, HashPassword } from "../services/user.service.js";
 import { loginSchema, registerSchema } from "../validations/user.validation.js";
 
@@ -41,6 +42,8 @@ export const Register = async (req, res) => {
 
         // set token in response
         res.cookie('jwt_token', token, cookieOptions);
+
+        await sendOnboardingEmail(name,email);
 
         // return created user
         return res.status(201).json({ success: true, message: 'User Created Successfully', data: user });
